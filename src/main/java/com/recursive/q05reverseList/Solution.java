@@ -20,15 +20,21 @@ public class Solution {
         if (head == null || head.next == null) {
             return head;
         }
-        return null;
+        ListNode rHead = reverseList(head.next);
+        //head.next此刻指向head后面的链表的尾节点
+        //head->next->next = head把head节点放在了尾部
+        head.next.next = head;
+        head.next = null;
+        return rHead;
     }
 
     public static void main(String[] args) {
         Solution test = new Solution();
-        int[] nums = {1, 2, 6, 3, 4, 5, 6};
+        int[] nums = {1, 2, 3, 4, 5};
         ListNode head = new ListNode(nums);
-        System.out.println(head);
+        System.out.println("init-head:" + head);
         ListNode reverseList = test.reverseList(head);
-        System.out.println(reverseList);
+        System.out.println("res-head:" + reverseList);
     }
+
 }

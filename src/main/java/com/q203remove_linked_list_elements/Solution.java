@@ -1,4 +1,4 @@
-package com.q202;
+package com.q203remove_linked_list_elements;
 
 /**
  * @author xjn
