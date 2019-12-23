@@ -4,7 +4,6 @@ package com.recursive.q07climbStairs;
  * @author xjn
  * @since 2019-12-19
  * <p>
- * 动态规划
  */
 public class Solution2 {
 
