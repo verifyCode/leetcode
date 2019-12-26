@@ -44,14 +44,24 @@ package com.q12integer_to_roman;
  */
 public class Solution {
     public String intToRoman(int num) {
-        return null;
+        int[] nums = new int[]{1, 4, 5, 9, 10, 40, 50, 90, 100, 400, 500, 900, 1000};
+        String[] romans = new String[]{"I", "IV", "V", "IX", "X", "XL", "L", "XC", "C", "CD", "D", "CM", "M"};
+        String res = "";
+        for (int i = nums.length - 1; i >= 0; i--) {
+            while (num - nums[i] >= 0) {
+                num = num - nums[i];
+                res += romans[i];
+            }
+        }
+        return res;
     }
 
 
     //1~3999
     public static void main(String[] args) {
         Solution test = new Solution();
-        int i = 21;
+        int i = 100;
         System.out.println(i + ":" + test.intToRoman(i));
     }
 }
+
