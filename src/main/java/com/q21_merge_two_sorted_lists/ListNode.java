@@ -1,4 +1,4 @@
-package com.q83_remove_duplicates_from_sorted_list;
+package com.q21_merge_two_sorted_lists;
 
 /**
  * @author xjn

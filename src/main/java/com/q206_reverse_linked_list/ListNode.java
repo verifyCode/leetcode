@@ -1,4 +1,4 @@
-package com.recursive.q02_swapPairs;
+package com.q206_reverse_linked_list;
 
 /**
  * @author xjn

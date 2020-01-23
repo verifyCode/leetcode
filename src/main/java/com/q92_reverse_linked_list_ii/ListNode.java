@@ -1,4 +1,4 @@
-package com.q206_reverse_linked_list;
+package com.q92_reverse_linked_list_ii;
 
 /**
  * @author xjn

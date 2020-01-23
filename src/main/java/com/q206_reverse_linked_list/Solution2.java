@@ -5,4 +5,23 @@ package com.q206_reverse_linked_list;
  * @since 2020-01-22
  */
 public class Solution2 {
+    public ListNode reverseList(ListNode head) {
+        if (head == null || head.next == null) {
+            return head;
+        }
+        ListNode ret = reverseList(head.next);
+        head.next.next = head;
+        head.next = null;
+        return ret;
+    }
+
+    public static void main(String[] args) {
+        Solution2 test = new Solution2();
+        int[] nums = {1, 2, 3, 4, 5};
+        ListNode head = new ListNode(nums);
+        System.out.println("init-head:" + head);
+        ListNode reverseList = test.reverseList(head);
+        System.out.println("res-head:" + reverseList);
+    }
+
 }

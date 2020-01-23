@@ -1,8 +1,8 @@
-package com.q83_remove_duplicates_from_sorted_list;
+package com.q86_partition_list;
 
 /**
  * @author xjn
- * @since 2019-12-17
+ * @since 2019-12-18
  */
 public class ListNode {
     public int val;
@@ -40,4 +40,5 @@ public class ListNode {
         s.append("NULL");
         return s.toString();
     }
+
 }
