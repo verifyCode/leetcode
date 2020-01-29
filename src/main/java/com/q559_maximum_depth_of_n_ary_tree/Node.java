@@ -1,4 +1,4 @@
-package com.q599_maximum_depth_of_n_ary_tree;
+package com.q559_maximum_depth_of_n_ary_tree;
 
 import java.util.List;
 
