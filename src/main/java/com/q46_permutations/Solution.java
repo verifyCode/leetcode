@@ -1,0 +1,61 @@
+package com.q46_permutations;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Set;
+import java.util.TreeSet;
+
+/**
+ * @author xjn
+ * @since 2020-01-30
+ * https://leetcode-cn.com/problems/permutations/
+ * 46. 全排列
+ */
+public class Solution {
+
+
+    private List<List<Integer>> resList = new ArrayList<>();
+    private Set<Integer> used = new TreeSet<>();
+
+    public List<List<Integer>> permute(int[] nums) {
+        if (nums == null || nums.length == 0) {
+            return resList;
+        }
+        ArrayList<Integer> list = new ArrayList<>();
+        findPermute(nums, 0, list);
+        return resList;
+    }
+
+    private void findPermute(int[] nums, int index, ArrayList<Integer> list) {
+//        System.out.println("findPermute(),index:" + index);
+        if (index == nums.length) {
+//            System.out.println("返回list:" + list);
+            resList.add(new ArrayList<>(list));
+            return;
+        }
+        for (int i = 0; i < nums.length; i++) {
+            if (!used.contains(nums[i])) {
+                list.add(nums[i]);
+                used.add(nums[i]);
+//                System.out.println(generateString(level) + "前:nums[i]:" + nums[i] + " list:" + list + " used:" + used);
+                findPermute(nums, index + 1, list);
+                list.remove(list.size() - 1);
+                used.remove(nums[i]);
+//                System.out.println(generateString(level) + "后:nums[i]:" + nums[i] + " list:" + list + " used:" + used);
+            }
+        }
+    }
+
+    private String generateString(int level) {
+        StringBuilder builder = new StringBuilder();
+        for (int i = 0; i < level; i++) {
+            builder.append("--");
+        }
+        return builder.toString();
+    }
+
+    public static void main(String[] args) {
+        Solution solution = new Solution();
+        System.out.println(solution.permute(new int[]{1, 2, 3}));
+    }
+}
