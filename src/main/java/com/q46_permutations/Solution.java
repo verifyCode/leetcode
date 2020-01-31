@@ -21,27 +21,25 @@ public class Solution {
         if (nums == null || nums.length == 0) {
             return resList;
         }
+        resList.clear();
+        used.clear();
         ArrayList<Integer> list = new ArrayList<>();
         findPermute(nums, 0, list);
         return resList;
     }
 
     private void findPermute(int[] nums, int index, ArrayList<Integer> list) {
-//        System.out.println("findPermute(),index:" + index);
         if (index == nums.length) {
-//            System.out.println("返回list:" + list);
             resList.add(new ArrayList<>(list));
             return;
         }
         for (int i = 0; i < nums.length; i++) {
             if (!used.contains(nums[i])) {
-                list.add(nums[i]);
                 used.add(nums[i]);
-//                System.out.println(generateString(level) + "前:nums[i]:" + nums[i] + " list:" + list + " used:" + used);
+                list.add(nums[i]);
                 findPermute(nums, index + 1, list);
                 list.remove(list.size() - 1);
                 used.remove(nums[i]);
-//                System.out.println(generateString(level) + "后:nums[i]:" + nums[i] + " list:" + list + " used:" + used);
             }
         }
     }
