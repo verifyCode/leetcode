@@ -31,6 +31,7 @@ public class Solution {
             return;
         }
 
+        //start:1  n:4
         for (int i = start; i <= n; i++) {
             stack.add(i);
             findCombine(n, i + 1, k, stack);
