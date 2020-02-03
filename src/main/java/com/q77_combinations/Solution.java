@@ -33,9 +33,13 @@ public class Solution {
 
         //start:1  n:4
         for (int i = start; i <= n; i++) {
-            stack.add(i);
-            findCombine(n, i + 1, k, stack);
-            stack.pop();
+            if(!used.contains(i)) {
+                stack.add(i);
+                used.add(i);
+                findCombine(n, i + 1, k, stack);
+                stack.pop();
+                used.remove(i);
+            }
         }
     }
 
