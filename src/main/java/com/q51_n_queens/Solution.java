@@ -6,6 +6,8 @@ import java.util.List;
 /**
  * @author xjn
  * @since 2020-02-06
+ * https://leetcode-cn.com/problems/n-queens/
+ * 51. N皇后
  */
 public class Solution {
     private List<List<String>> resList = new ArrayList<>();
