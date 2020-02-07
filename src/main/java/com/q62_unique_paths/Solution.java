@@ -1,7 +1,5 @@
 package com.q62_unique_paths;
 
-import java.util.HashMap;
-
 /**
  * @author xjn
  * @since 2020-02-07
