@@ -1,5 +1,8 @@
 package com.q91_decode_ways;
 
+import java.util.HashMap;
+import java.util.Map;
+
 /**
  * @author xjn
  * @since 2020-02-04
@@ -8,44 +11,48 @@ package com.q91_decode_ways;
  */
 public class Solution {
 
+    Map<String, Integer> map = new HashMap<>();
+
     public int numDecodings(String s) {
+        if (s == null || s.length() == 0) {
+            return 0;
+        }
+
         return numDecodingsRecursive(s);
     }
 
+    //返回字符串s的解码总数
     private int numDecodingsRecursive(String s) {
-        System.out.println("s:" + s);
-        if (0 == s.length()) {
+        if (map.containsKey(s)) {
+            return map.get(s);
+        }
+        if (s == null || s.length() == 0) {
             return 0;
         }
-        if (1 == s.length()) {
-            int t = Integer.parseInt(s);
-            if (t == 0) {
-                return 0;
-            }
+        if (s.charAt(0) == '0') {
+            return 0;
+        }
+        if (s.length() == 1) {
             return 1;
         }
-        String strTen = s.substring(0, 1);
-        String strGe = s.substring(1, 2);
-
-        int ten = Integer.parseInt(strTen);
-        int ge = Integer.parseInt(strGe);
-        int all = ten * 10 + ge;
-        int res = 0;
-        if (ten > 0 && ge > 0) {
-            res += 1;
-        } else if (all > 0 && all <= 26) {
-            res += 1;
+        int w = numDecodingsRecursive(s.substring(1));
+        String str = s.substring(0, 2);
+        int temp = Integer.parseInt(str);
+        if (temp <= 26) {
+            w = w + numDecodingsRecursive(s.substring(2));
         }
-        res += numDecodingsRecursive(s.substring(1, s.length()));
-        System.out.println("strTen:" + strTen + "  strGe:" + strGe + "  res:" + res);
-        return res;
+        map.put(s, w);
+        return w;
     }
-
 
 
     public static void main(String[] args) {
         Solution test = new Solution();
-//        System.out.println(test.numDecodingsRecursive("12"));
+        System.out.println(test.numDecodings("12"));//2
+        System.out.println(test.numDecodings("226"));//3
+        System.out.println(test.numDecodings("12345"));//3
+        System.out.println(test.numDecodings("00"));//0
+        System.out.println(test.numDecodings("01"));//0
     }
 
 
