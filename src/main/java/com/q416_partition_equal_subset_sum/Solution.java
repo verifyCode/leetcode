@@ -1,7 +1,5 @@
 package com.q416_partition_equal_subset_sum;
 
-import java.util.Arrays;
-
 /**
  * @author xjn
  * @since 2020-02-07
