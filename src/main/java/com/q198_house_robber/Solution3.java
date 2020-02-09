@@ -8,10 +8,13 @@ package com.q198_house_robber;
  */
 public class Solution3 {
 
+    private int[] memo;
+
     public int rob(int[] nums) {
         if (nums == null || nums.length == 0) {
             return 0;
         }
+        memo = new int[nums.length];
         return rob(nums, 0);
     }
 
@@ -19,8 +22,14 @@ public class Solution3 {
         if (start >= nums.length) {
             return 0;
         }
+        if (memo[start] != 0) {
+            return memo[start];
+        }
+        //不抢去下一家
         int a = rob(nums, start + 1);
+        //抢完 去下下一家
         int b = nums[start] + rob(nums, start + 2);
+        memo[start] = Math.max(a, b);
         return Math.max(a, b);
     }
 
