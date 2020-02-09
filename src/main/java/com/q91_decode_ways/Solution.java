@@ -11,38 +11,39 @@ import java.util.Map;
  */
 public class Solution {
 
-    Map<String, Integer> map = new HashMap<>();
+    Map<Integer, Integer> map = new HashMap<>();
 
-    public int numDecodings(String s) {
+    public int numDecodings(String s){
         if (s == null || s.length() == 0) {
             return 0;
         }
-
-        return numDecodingsRecursive(s);
+        map.clear();
+        return numDecodingsRecursive(s, 0);
     }
 
     //返回字符串s的解码总数
-    private int numDecodingsRecursive(String s) {
-        if (map.containsKey(s)) {
-            return map.get(s);
+    private int numDecodingsRecursive(String s, int start) {
+        if (map.containsKey(start)) {
+            return map.get(start);
         }
-        if (s == null || s.length() == 0) {
-            return 0;
-        }
-        if (s.charAt(0) == '0') {
-            return 0;
-        }
-        if (s.length() == 1) {
+        if (start == s.length()) {
             return 1;
         }
-        int w = numDecodingsRecursive(s.substring(1));
-        String str = s.substring(0, 2);
-        int temp = Integer.parseInt(str);
-        if (temp <= 26) {
-            w = w + numDecodingsRecursive(s.substring(2));
+        if (s.charAt(start) == '0') {
+            return 0;
         }
-        map.put(s, w);
-        return w;
+
+        int a = numDecodingsRecursive(s, start + 1);
+        int b = 0;
+        if (start < s.length() - 1) {
+            int ten = Integer.parseInt(s.charAt(start) + "") * 10;
+            int ge = Integer.parseInt(s.charAt(start + 1) + "");
+            if (ten + ge <= 26) {
+                b = numDecodingsRecursive(s, start + 2);
+            }
+        }
+        map.put(start, a + b);
+        return a + b;
     }
 
 
