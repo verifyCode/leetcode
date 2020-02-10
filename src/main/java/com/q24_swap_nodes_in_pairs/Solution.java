@@ -7,10 +7,18 @@ package com.q24_swap_nodes_in_pairs;
  */
 //TODO
 public class Solution {
+    //返回交换链表之后的头结点
     public ListNode swapPairs(ListNode head) {
-
-        return null;
-
+        if (head == null || head.next == null) {
+            return head;
+        }
+        //1->2->3->4->null
+        ListNode temp = head.next;
+        //1->2<-4<-3
+        head.next = swapPairs(temp.next);
+        temp.next = head;
+        head = null;
+        return temp;
     }
 
     public static void main(String[] args) {
