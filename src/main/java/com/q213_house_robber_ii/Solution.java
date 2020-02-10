@@ -21,8 +21,8 @@ public class Solution {
             return nums[0];
         }
         memo = new int[nums.length][nums.length];
-        int a = rob(nums, 0, nums.length - 2);
-        int b = rob(nums, 1, nums.length - 1);
+        int a = rob2(nums, 0, nums.length - 2);
+        int b = rob2(nums, 1, nums.length - 1);
         return Math.max(a, b);
     }
 
@@ -41,6 +41,17 @@ public class Solution {
             memo[start][end] = res;
         }
         return res;
+    }
+
+    private int rob2(int[] nums, int start, int end) {
+        if (start > end) {
+            return 0;
+        }
+        //要么不偷
+        int a = rob2(nums, start + 1, end);
+        //要么偷
+        int b = nums[start] + rob2(nums, start + 2, end);
+        return Math.max(a, b);
     }
 
     public static void main(String[] args) {
