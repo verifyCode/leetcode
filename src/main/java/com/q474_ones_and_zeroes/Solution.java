@@ -2,6 +2,8 @@ package com.q474_ones_and_zeroes;
 
 
 import java.util.Arrays;
+import java.util.Set;
+import java.util.TreeSet;
 
 /**
  * @author xjn
@@ -13,6 +15,7 @@ public class Solution {
 
     //m个0  n个1
     private int[][][] memo;
+    private Set<String> set = new TreeSet<>();
 
     public int findMaxForm(String[] strs, int m, int n) {
         if (strs.length == 0 || (m == 0 && n == 0)) {
@@ -24,6 +27,7 @@ public class Solution {
                 Arrays.fill(memo[i][j], -1);
             }
         }
+//        return dfs(strs, m, n, 0);
         return tryFindMaxForm(strs, m, n, strs.length - 1);
     }
 
@@ -52,6 +56,45 @@ public class Solution {
         memo[index][m][n] = a;
         return a;
     }
+//
+//    private int dfs(String[] strs, int m, int n, int index) {
+////        System.out.println("m:" + m + " n:" + n);
+//        if (index >= strs.length) {
+//            return 0;
+//        }
+//        if (m < 0 || n < 0) {
+//            return 0;
+//        }
+//        if (m == 0 && n == 0) {
+//            return 1;
+//        }
+//
+//        int res = Integer.MIN_VALUE;
+//        for (int i = index; i < strs.length; i++) {
+//            String curStr = strs[i];
+//            System.out.println("curStr:" + curStr + " i:" + i);
+//            if (set.contains(curStr)) {
+//                continue;
+//            }
+//            int numOf1 = 0;
+//            int numOf0 = 0;
+//            for (int j = 0; j < curStr.length(); j++) {
+//                if (curStr.charAt(j) == '0') {
+//                    numOf0++;
+//                } else {
+//                    numOf1++;
+//                }
+//            }
+//
+//            if (m - numOf0 >= 0 && n - numOf1 >= 0) {
+//                int b = dfs(strs, m - numOf0, n - numOf1, index + 1) + 1;
+//                set.remove(curStr);
+//                res = Math.max(res, b);
+//            }
+//        }
+//        return res;
+//    }
+
 
     public static void main(String[] args) {
         Solution solution = new Solution();
