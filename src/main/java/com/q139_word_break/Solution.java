@@ -33,7 +33,7 @@ public class Solution {
         }
         for (int i = start; i <= s.length(); i++) {
             String subStr = s.substring(start, i);
-//            System.out.println(subStr);
+            System.out.println(subStr);
             if (wordDict.contains(subStr)) {
                 if (tryWordBreak(s, wordDict, i)) {
                     memo[start] = 1;
@@ -47,7 +47,7 @@ public class Solution {
 
     public static void main(String[] args) {
         Solution solution = new Solution();
-        System.out.println(solution.wordBreak("catsandog", Arrays.asList("cats", "dog", "sand", "and", "cat")));
+//        System.out.println(solution.wordBreak("catsandog", Arrays.asList("cats", "dog", "sand", "and", "cat")));
         System.out.println(solution.wordBreak("leetcode", Arrays.asList("leet", "code")));
     }
 }
