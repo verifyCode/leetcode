@@ -20,6 +20,35 @@ public class Solution2 {
     int last = Integer.MIN_VALUE;
 
     public boolean isValidBST(TreeNode root) {
-        return false;
+        if (root == null) {
+            return true;
+        }
+
+        if (!isValidBST(root.left)) {
+            return false;
+        }
+        if (root.val <= last) {
+            return false;
+        }
+        last = root.val;
+
+        if (!isValidBST(root.right)) {
+            return false;
+        }
+        return true;
     }
+
+    private boolean dfs(TreeNode root, int max, int min) {
+        if (root == null) {
+            return true;
+        }
+        if (root.val > max || root.val < min) {
+            return false;
+        }
+        boolean a = dfs(root.left, root.val, min);
+        boolean b = dfs(root.right, max, root.val);
+        return a && b;
+    }
+
+
 }
