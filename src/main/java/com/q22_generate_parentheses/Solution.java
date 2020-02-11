@@ -1,5 +1,6 @@
 package com.q22_generate_parentheses;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -14,20 +15,38 @@ public class Solution {
     private static final String LEFT = "(";
     private static final String RIGHT = ")";
 
+    private List<String> resList = new ArrayList<>();
+
     public List<String> generateParenthesis(int n) {
-        generateParenthesis(n, 1, "");
-        return null;
+        resList.clear();
+        generateParenthesis(2 * n, "");
+        return resList;
     }
 
-    private void generateParenthesis(int n, int start, String s) {
-        if (n * 2 == s.length()) {
-            System.out.println(s);
+    private void generateParenthesis(int n, String s) {
+        if (n <= 0) {
+            if (check(s)) {
+                resList.add(s);
+            }
             return;
         }
-        for (int i = start; i <= n; i++) {
-            generateParenthesis(n, start, s + LEFT);
-            generateParenthesis(n, start, s + RIGHT);
+        generateParenthesis(n - 1, s + LEFT);
+        generateParenthesis(n - 1, s + RIGHT);
+    }
+
+    private boolean check(String str) {
+        int flag = 0;
+        for (int i = 0; i < str.length(); i++) {
+            if (str.charAt(i) == '(') {
+                flag++;
+            } else {
+                flag--;
+            }
+            if (flag < 0) {
+                return false;
+            }
         }
+        return flag == 0;
     }
 
     public static void main(String[] args) {
