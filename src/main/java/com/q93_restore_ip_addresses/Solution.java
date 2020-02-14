@@ -49,6 +49,27 @@ public class Solution {
         }
     }
 
+    private void dfs(String ip, int index, String restored, int count) {
+        if (count > 4) {
+            return;
+        }
+        if (count == 4 && index == ip.length()) {
+            resList.add(restored);
+            return;
+        }
+        for (int i = 0; i < 4; i++) {
+            if (index + i > ip.length()) {
+                return;
+            }
+            String s = ip.substring(index, index + i);
+            if (s.startsWith("0") && s.length() == 1 || i == 3 && Integer.valueOf(s) > 255) {
+                return;
+            }
+
+            dfs(ip, index + i, restored + s + (count == 3 ? "" : "."), count + 1);
+        }
+    }
+
     public static void main(String[] args) {
         Solution solution = new Solution();
         //25525511135
@@ -56,5 +77,9 @@ public class Solution {
 //        solution.restoreIpAddresses("25525511135");
 //        solution.restoreIpAddresses("0000");
         solution.restoreIpAddresses("010010");
+        String s = "1234";
+        System.out.println(s.substring(0, 1));
+        System.out.println(s.substring(0, 2));
+        System.out.println(s.substring(0, 3));
     }
 }
