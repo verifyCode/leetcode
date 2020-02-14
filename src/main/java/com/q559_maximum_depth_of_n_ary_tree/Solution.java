@@ -1,7 +1,6 @@
 package com.q559_maximum_depth_of_n_ary_tree;
 
-import java.util.ArrayList;
-import java.util.Collections;
+
 import java.util.List;
 
 /**
@@ -22,13 +21,11 @@ public class Solution {
         if (children == null || children.size() == 0) {
             return 1;
         }
-        List<Integer> list = new ArrayList<>();
+        int res = Integer.MIN_VALUE;
         for (Node node : children) {
-            int depth = maxDepth(node) + 1;
-            list.add(depth);
+            res = Math.max(maxDepth(node) + 1, res);
         }
-
-        return Collections.max(list);
+        return res;
     }
 
 
