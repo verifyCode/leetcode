@@ -6,10 +6,14 @@ import java.util.List;
 /**
  * @author xjn
  * @since 2020-01-30
+ * https://leetcode-cn.com/problems/letter-combinations-of-a-phone-number/
+ * 17. 电话号码的字母组合
+ *
+ * 时间复杂度O(3^n)
+ * 空间复杂度O(3^n)
  */
 public class Solution2 {
-
-    String[] lettersMap = {
+    private String[] letterMap = new String[]{
             " ",//0
             "",//1
             "abc",//2
@@ -22,31 +26,32 @@ public class Solution2 {
             "wxyz"//9
     };
 
-    private List<String> list = new ArrayList<>();
+    private List<String> resList = new ArrayList<>();
 
     public List<String> letterCombinations(String digits) {
+        resList.clear();
         if (digits == null || digits.length() == 0) {
-            return list;
+            return resList;
         }
-        findCombination(digits, 0, "");
-        return list;
+        dfs(digits, 0, "");
+        return resList;
     }
 
-    private void findCombination(String digits, int index, String s) {
-        if (index == s.length()) {
-            list.add(s);
+    private void dfs(String digits, int index, String s) {
+        if (index == digits.length()) {
+            resList.add(s);
             return;
         }
-
         char c = digits.charAt(index);
-        String letter = lettersMap[c - '0'];
+        String letter = letterMap[c - '0'];
         for (int i = 0; i < letter.length(); i++) {
-            findCombination(digits, index + 1, s + letter.charAt(i));
+            dfs(digits, index + 1, s + letter.charAt(i));
         }
     }
+
 
     public static void main(String[] args) {
         Solution2 test = new Solution2();
-        test.letterCombinations("23");
+        System.out.println(test.letterCombinations("23"));
     }
 }
