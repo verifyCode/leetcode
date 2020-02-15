@@ -1,5 +1,8 @@
 package com.q03_longest_substring_without_repeating_characters;
 
+import java.util.Set;
+import java.util.TreeSet;
+
 /**
  * https://leetcode-cn.com/problems/longest-substring-without-repeating-characters/
  * <p>
@@ -13,35 +16,36 @@ package com.q03_longest_substring_without_repeating_characters;
  *
  * @author xjn
  * @since 2019-12-23
+ * 时间复杂度O(len(s))
+ * 空间复杂度O(len(charset))
  */
 public class Solution {
     public int lengthOfLongestSubstring(String s) {
-        if (s == null || s.trim().length() == 0) {
+        if (s == null || s.length() == 0) {
             return 0;
         }
-        //滑动窗口
-        int[] freq = new int[256];
+        Set<Character> set = new TreeSet<>();
         int l = 0;
-        int r = -1;
-        int max = 0;
-        while (r + 1 < s.length()) {
-            if ((r + 1) < s.length() && freq[s.charAt(r + 1)] == 0) {
+        int r = 0;
+        int size = 0;
+        while (l < s.length() && r < s.length()) {
+            if (!set.contains(s.charAt(r))) {
+                set.add(s.charAt(r));
                 r++;
-                freq[s.charAt(r)]++;
+                size = Math.max(set.size(), r - l + 1);
             } else {
                 l++;
-                freq[s.charAt(l)]--;
+                set.remove(s.charAt(l));
             }
-            max = Math.max(r - l + 1, max);
         }
-        return max;
+        return size;
     }
 
     public static void main(String[] args) {
         Solution test = new Solution();
         System.out.println(test.lengthOfLongestSubstring("abcabcbb"));
-//        System.out.println(test.lengthOfLongestSubstring("pwewwwe"));
-//        System.out.println(test.lengthOfLongestSubstring(""));
+        System.out.println(test.lengthOfLongestSubstring("pwewwwe"));
+        System.out.println(test.lengthOfLongestSubstring("pwwkew"));
 
     }
 }
