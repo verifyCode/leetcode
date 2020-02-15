@@ -19,6 +19,12 @@ package com.q05_longest_palindromic_substring;
  */
 public class Solution {
     public String longestPalindrome(String s) {
+        if(s == null || s.length() == 0){
+            return null;
+        }
+        if(s.length() < 2){
+            return s;
+        }
         boolean[][] dp = new boolean[s.length()][s.length()];
         for (int i = 0; i < s.length(); i++) {
             dp[i][i] = true;
