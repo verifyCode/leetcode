@@ -41,6 +41,10 @@ package com.q12_integer_to_roman;
  * 输入: 1994
  * 输出: "MCMXCIV"
  * 解释: M = 1000, CM = 900, XC = 90, IV = 4.
+ *
+ * 时间复杂度:O(1)
+ * 空间复杂度O(1)
+ * 贪心
  */
 public class Solution {
     public String intToRoman(int num) {
@@ -48,8 +52,8 @@ public class Solution {
         String[] romans = new String[]{"I", "IV", "V", "IX", "X", "XL", "L", "XC", "C", "CD", "D", "CM", "M"};
         String res = "";
         for (int i = nums.length - 1; i >= 0; i--) {
-            while (num - nums[i] >= 0) {
-                num = num - nums[i];
+            while (num >= nums[i]) {
+                num -= nums[i];
                 res += romans[i];
             }
         }
