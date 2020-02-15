@@ -4,6 +4,9 @@ package com.q21_merge_two_sorted_lists;
  * @author xjn
  * @since 2020-01-23
  * https://leetcode-cn.com/problems/merge-two-sorted-lists/
+ * 21. 合并两个有序链表
+ * 时间复杂度:O(m+n)
+ * 空间复杂度:O(1)
  */
 public class Solution {
     public ListNode mergeTwoLists(ListNode l1, ListNode l2) {
