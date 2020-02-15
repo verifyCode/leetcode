@@ -13,11 +13,40 @@ package com.q05_longest_palindromic_substring;
  * <p>
  * <p>
  * 马拉车算法:https://www.jianshu.com/p/392172762e55
+ *
+ * 时间复杂度O(n^2)
+ * 空间复杂度O(n^2)
  */
 public class Solution {
-    //TODO
     public String longestPalindrome(String s) {
-        return null;
+        boolean[][] dp = new boolean[s.length()][s.length()];
+        for (int i = 0; i < s.length(); i++) {
+            dp[i][i] = true;
+        }
+        int size = 1;
+        int start = 0;
+        for (int j = 1; j < s.length(); j++) {
+            for (int i = 0; i <= j; i++) {
+                if (s.charAt(i) == s.charAt(j)) {
+                    if (j - i < 3) {
+                        dp[i][j] = true;
+                    } else {
+                        dp[i][j] = dp[i + 1][j - 1];
+                    }
+                } else {
+                    dp[i][j] = false;
+                }
+
+                if (dp[i][j] && j - i + 1 > size) {
+                    size = j - i + 1;
+                    start = i;
+                }
+            }
+        }
+        if (size == 1) {
+            return s.charAt(0) + "";
+        }
+        return s.substring(start, start + size);
     }
 
     public static void main(String[] args) {
