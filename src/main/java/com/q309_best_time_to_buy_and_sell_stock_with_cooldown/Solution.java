@@ -5,6 +5,9 @@ package com.q309_best_time_to_buy_and_sell_stock_with_cooldown;
  * @since 2020-02-09
  * https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock-with-cooldown/
  * 309. 最佳买卖股票时机含冷冻期
+ * rest[i]:在第i天,最后一个操作是的时候所能获得的最大收益
+ * sold[i]:在第i天,最后一个操作是卖的时候所能获得的最大收益
+ * hold[i]:在第i天,最后一个操作是持有的时候所能获得的最大收益
  */
 public class Solution {
     //dp[i][0] = max{dp[i-1][0],dp[i-1][1] + p[i]};

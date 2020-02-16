@@ -4,6 +4,10 @@ package com.背包问题;
  * @author xjn
  * @since 2020-02-07
  * 0-1背包问题
+ * F[i][j]:表示前i个物品,总体积是j的情况下,总价值是多少
+ * result = max {F[n][0~V]}
+ * 1. 不选第i个物品: F[i][j] = F[i-1][j]
+ * 2. 选第i个物品: F[i][j] = F[i-1][j-v[i]]
  */
 public class Knapsack01 {
 
