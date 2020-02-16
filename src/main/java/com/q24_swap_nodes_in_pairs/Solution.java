@@ -8,17 +8,27 @@ package com.q24_swap_nodes_in_pairs;
  */
 public class Solution {
     //返回交换链表之后的头结点
-    public ListNode swapPairs(ListNode head) {
+    public ListNode swapPairs(ListNode head, int level) {
         if (head == null || head.next == null) {
             return head;
         }
         //1->2->3->4->null
         ListNode temp = head.next;
+        System.out.println(generateString(level) + "temp:" + temp.val);
         //1->2<-4<-3
-        head.next = swapPairs(temp.next);
+        head.next = swapPairs(temp.next, level + 1);
+        System.out.println(generateString(level) + "head:" + head.val);
         temp.next = head;
         head = null;
         return temp;
+    }
+
+    private String generateString(int level) {
+        StringBuilder builder = new StringBuilder();
+        for (int i = 0; i < level; i++) {
+            builder.append("--");
+        }
+        return builder.toString();
     }
 
     public static void main(String[] args) {
@@ -26,6 +36,6 @@ public class Solution {
         int[] nums = {1, 2, 3, 4, 5, 6};
         ListNode head = new ListNode(nums);
         System.out.println(head);
-        System.out.println(test.swapPairs(head));
+        System.out.println(test.swapPairs(head, 0));
     }
 }
