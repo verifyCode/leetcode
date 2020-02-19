@@ -7,8 +7,9 @@ package com.q198_house_robber;
  * 198. 打家劫舍
  */
 public class Solution2 {
-    //状态:尝试从nums[0,n]中找到偷取的最大值
-    //状态转移方程 f(nums) = max{v(0) + f(1,n), v(1) + f(2,n) + ... v(n-2) + f(n-1,n)}
+    //状态:考虑偷取[x...n-1]范围里的房子
+    //f(i):考虑偷取[i...n-1]范围里的房子
+    //f(0) = max{v(0)+f(2),v(1) + f(3),v(2)+f(4) ... v(n-3)+f(n-1),v(n-2),v(n-1)}
     public int rob(int[] nums) {
         if (nums == null || nums.length == 0) {
             return 0;
@@ -16,6 +17,7 @@ public class Solution2 {
         int n = nums.length;
         int[] dp = new int[n];
         dp[n - 1] = nums[n - 1];
+        //n-2~0
         for (int i = n - 2; i >= 0; i--) {
             for (int j = i; j < n; j++) {
                 dp[i] = Math.max(dp[i], nums[j] + (j + 2 < n ? dp[j + 2] : 0));
