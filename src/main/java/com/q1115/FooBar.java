@@ -11,8 +11,6 @@ public class FooBar {
     private int n;
     private ReentrantLock lock = new ReentrantLock();
     private Condition condition = lock.newCondition();
-    private Condition fooCondition = lock.newCondition();
-    private Condition barCondition = lock.newCondition();
     private boolean runFoo = true;
 
     public FooBar(int n) {
