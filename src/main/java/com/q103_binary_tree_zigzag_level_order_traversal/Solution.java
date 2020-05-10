@@ -10,6 +10,8 @@ import java.util.Queue;
  * @since 2020-01-24
  * https://leetcode-cn.com/problems/binary-tree-zigzag-level-order-traversal/
  * 103. 二叉树的锯齿形层次遍历
+ * 时间复杂度 O(n)
+ * 空间复杂度 O(n)
  */
 public class Solution {
     private class Tree {

@@ -8,6 +8,9 @@ import java.util.Queue;
 /**
  * @author xjn
  * @since 2020-01-23
+ * https://leetcode-cn.com/problems/maximum-depth-of-binary-tree/
+ * 时间复杂度 O(n)
+ * 空间负载度 O(n)
  */
 public class Solution {
     private class Tree {

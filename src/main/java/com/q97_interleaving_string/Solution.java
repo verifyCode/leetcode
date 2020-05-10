@@ -21,6 +21,8 @@ package com.q97_interleaving_string;
 public class Solution {
     //TODO
     public boolean isInterleave(String s1, String s2, String s3) {
+        // dp[i][j] s1[0~i] s2[0~j] --> s3[i~j]
+        // dp[i][j] = dp
         return false;
     }
     public static void main(String[] args) {
