@@ -18,6 +18,8 @@ package com.q104_maximum_depth_of_binary_tree;
  * /  \
  * 15   7
  * 返回它的最大深度 3 。
+ * 时间复杂度 O(n)
+ * 空间复杂度 O(n)
  */
 public class Solution {
     public int maxDepth(TreeNode root) {

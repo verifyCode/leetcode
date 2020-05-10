@@ -10,12 +10,15 @@ import java.util.Stack;
  * @since 2020-01-28
  * https://leetcode-cn.com/problems/maximum-depth-of-binary-tree/
  * 104. 二叉树的最大深度
+ * 时间复杂度O(n)
+ * 空间复杂度O(n)
  */
 public class Solution2 {
     public int maxDepth(TreeNode root) {
         if (root == null) {
             return 0;
         }
+        //k:node v:depth
         Pair<TreeNode, Integer> pair = new Pair<>(root, 0);
         Stack<Pair<TreeNode, Integer>> stack = new Stack<>();
         stack.push(pair);
