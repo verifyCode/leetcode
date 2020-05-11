@@ -8,6 +8,8 @@ import java.util.List;
  * @since 2020-01-29
  * https://leetcode-cn.com/problems/letter-combinations-of-a-phone-number/
  * 17. 电话号码的字母组合
+ * 时间复杂度 O(3^n)
+ * 空间复杂度 O(len(n))
  */
 public class Solution {
 

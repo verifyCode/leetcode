@@ -22,13 +22,16 @@ import java.util.List;
  * <p>
  * 来源：力扣（LeetCode）
  * 链接：https://leetcode-cn.com/problems/3sum
- * 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
+ * 时间复杂度 O(n^2)
+ * 空间复杂度O(n)
  */
 public class Solution {
 
     public List<List<Integer>> threeSum(int[] nums) {
+        //O(log(n))
         Arrays.sort(nums);
         List<List<Integer>> lists = new ArrayList<>();
+        //O(n^2)
         for (int i = 0; i < nums.length; i++) {
             int l = i + 1;
             int r = nums.length - 1;

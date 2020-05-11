@@ -8,9 +8,9 @@ import java.util.List;
  * @since 2020-01-30
  * https://leetcode-cn.com/problems/letter-combinations-of-a-phone-number/
  * 17. 电话号码的字母组合
- *
+ * <p>
  * 时间复杂度O(3^n)
- * 空间复杂度O(3^n)
+ * 空间复杂度O(len(n))
  */
 public class Solution2 {
     private String[] letterMap = new String[]{
@@ -30,14 +30,12 @@ public class Solution2 {
 
     public List<String> letterCombinations(String digits) {
         resList.clear();
-        if (digits == null || digits.length() == 0) {
-            return resList;
-        }
         dfs(digits, 0, "");
         return resList;
     }
 
-    private void dfs(String digits, int index, String s) {
+
+    public void dfs(String digits, int index, String s) {
         if (index == digits.length()) {
             resList.add(s);
             return;
@@ -48,7 +46,6 @@ public class Solution2 {
             dfs(digits, index + 1, s + letter.charAt(i));
         }
     }
-
 
     public static void main(String[] args) {
         Solution2 test = new Solution2();
