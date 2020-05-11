@@ -5,8 +5,8 @@ package com.q07_reverse_integer;
  * @since 2020-02-15
  * https://leetcode-cn.com/problems/reverse-integer/
  * 7. 整数反转
- *
- * 时间复杂度 O(log10^x)
+ * <p>
+ * 时间复杂度 O(len(x))
  * 空间复杂度 O(1)
  */
 public class Solution {
@@ -19,7 +19,7 @@ public class Solution {
                 return 0;
             }
         }
-        return (int)sum;
+        return (int) sum;
     }
 
     public static void main(String[] args) {

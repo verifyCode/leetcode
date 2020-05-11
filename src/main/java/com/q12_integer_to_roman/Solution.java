@@ -42,7 +42,7 @@ package com.q12_integer_to_roman;
  * 输出: "MCMXCIV"
  * 解释: M = 1000, CM = 900, XC = 90, IV = 4.
  *
- * 时间复杂度:O(1)
+ * 时间复杂度:O(n)
  * 空间复杂度O(1)
  * 贪心
  */

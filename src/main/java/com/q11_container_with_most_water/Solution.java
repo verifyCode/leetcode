@@ -6,7 +6,7 @@ package com.q11_container_with_most_water;
  * https://leetcode-cn.com/problems/container-with-most-water/
  * 11. 盛最多水的容器
  * 时间复杂度:O(n/2)
- * 空间复杂度:O()
+ * 空间复杂度:O(1)
  */
 public class Solution {
     public int maxArea(int[] height) {
