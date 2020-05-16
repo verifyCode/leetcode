@@ -6,6 +6,8 @@ package com.q101_symmetric_tree;
  * https://leetcode-cn.com/problems/symmetric-tree/
  * <p>
  * 101. 对称二叉树
+ * 时间复杂度 O(n)
+ * 空间复杂度 O(n)
  */
 public class Solution {
     public boolean isSymmetric(TreeNode root) {

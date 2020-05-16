@@ -5,6 +5,8 @@ package com.q100_same_tree;
  * @since 2020-01-27
  * https://leetcode-cn.com/problems/same-tree/
  * 100. 相同的树
+ * 时间复杂度 O(n)
+ * 空间复杂度 O(n)
  */
 public class Solution {
     private class TreeNode {
