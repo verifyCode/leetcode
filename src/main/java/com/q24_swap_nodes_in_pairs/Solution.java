@@ -5,6 +5,7 @@ package com.q24_swap_nodes_in_pairs;
  * @since 2020-01-23
  * https://leetcode-cn.com/problems/swap-nodes-in-pairs/
  * 24. 两两交换链表中的节点
+ * 时间复杂度 O()
  */
 public class Solution {
     //返回交换链表之后的头结点

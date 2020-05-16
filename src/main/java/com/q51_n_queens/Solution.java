@@ -34,12 +34,14 @@ public class Solution {
     private void putQueue(int n, int index, List<Integer> row) {
         if (index == n) {
             List<String> list = generateBoard(n, row);
+            //一个list是一个结果集
             resList.add(list);
             return;
         }
 
         //尝试将第index行的皇后摆放在第i列
         for (int i = 0; i < n; i++) {
+            //当前位置没有放过 && 当前位置的左对角线没放过 && 当前位置的右对角线没放过
             if (!col[i] && !dai1[index + i] && !dai2[index - i + n - 1]) {
                 col[i] = true;
                 dai1[index + i] = true;

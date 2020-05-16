@@ -11,44 +11,35 @@ import java.util.List;
  */
 public class Solution2 {
 
+    private static final char LEFT = '(';
+    private static final char RIGHT = ')';
+
     private List<String> resList = new ArrayList<>();
-    private static final String LEFT = "(";
-    private static final String RIGHT = ")";
 
     public List<String> generateParenthesis(int n) {
         resList.clear();
-        if (n == 0) {
-            return resList;
-        }
-        dfs("", 0, 0, n);
+        dfs(n, "");
         return resList;
     }
 
-    private void dfs(String s, int left, int right, int n) {
-        if (left < right) {
-            return;
-        }
-        if (left == n && right == n) {
+    private void dfs(int n, String s) {
+        if (n <= 0) {
             if (check(s)) {
                 resList.add(s);
             }
             return;
         }
-        if (left < n) {
-            dfs(s + LEFT, left + 1, right, n);
-        }
-        if (right < n) {
-            dfs(s + RIGHT, left, right + 1, n);
-        }
+        dfs(n - 1, s + LEFT);
+        dfs(n - 1, s + RIGHT);
     }
 
     private boolean check(String s) {
         int ans = 0;
         for (int i = 0; i < s.length(); i++) {
-            if (s.charAt(i) == LEFT.charAt(0)) {
+            if (s.charAt(i) == LEFT) {
                 ans++;
             }
-            if (s.charAt(i) == RIGHT.charAt(0)) {
+            if (s.charAt(i) == RIGHT) {
                 ans--;
             }
             if (ans < 0) {
@@ -57,6 +48,7 @@ public class Solution2 {
         }
         return ans == 0;
     }
+
 
     public static void main(String[] args) {
         Solution2 test = new Solution2();

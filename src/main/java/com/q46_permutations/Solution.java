@@ -10,6 +10,8 @@ import java.util.TreeSet;
  * @since 2020-01-30
  * https://leetcode-cn.com/problems/permutations/
  * 46. 全排列
+ * 时间复杂度 O(n^n)
+ * 空间复杂度 O(nums.length)
  */
 public class Solution {
 

@@ -32,14 +32,14 @@ public class Solution2 {
             resList.add(new ArrayList<>(list));
             return;
         }
-        for (int i = 0; i < nums.length; i++) {
-//            if (!used.contains(nums[i])) {
-//                used.add(nums[i]);
-            list.add(nums[i]);
-            findPermute(nums, index + 1, list);
-            list.remove(list.size() - 1);
-//                used.remove(nums[i]);                                                             mmm
-//            }
+        for (int i = index; i < nums.length; i++) {
+            if (!used.contains(nums[i])) {
+                used.add(nums[i]);
+                list.add(nums[i]);
+                findPermute(nums, index + 1, list);
+                list.remove(list.size() - 1);
+                used.remove(nums[i]);
+            }
         }
     }
 
