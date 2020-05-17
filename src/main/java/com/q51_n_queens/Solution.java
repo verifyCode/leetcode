@@ -8,6 +8,8 @@ import java.util.List;
  * @since 2020-02-06
  * https://leetcode-cn.com/problems/n-queens/
  * 51. N皇后
+ * 时间复杂度O(n^n)
+ * 空间复杂度O(n^2)
  */
 public class Solution {
     private List<List<String>> resList = new ArrayList<>();
@@ -56,8 +58,15 @@ public class Solution {
         }
     }
 
+
     private List<String> generateBoard(int n, List<Integer> row) {
+//      for(int i = 0; i < n; i ++){
+//          board[i][row[i] = 'Q';
+//       }
         List<String> list = new ArrayList<>();
+        //i行
+        //j列
+        //row[i]:lie
         for (int i = 0; i < n; i++) {
             StringBuilder builder = new StringBuilder();
             for (int j = 0; j < n; j++) {
@@ -75,6 +84,6 @@ public class Solution {
 
     public static void main(String[] args) {
         Solution solution = new Solution();
-        System.out.println(solution.solveNQueens(4));
+        System.out.println(solution.solveNQueens(8));
     }
 }
