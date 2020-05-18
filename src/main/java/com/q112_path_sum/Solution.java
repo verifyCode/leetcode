@@ -1,12 +1,12 @@
-package com.q82_path_sum;
+package com.q112_path_sum;
 
 /**
  * @author xjn
- * @since 2020-01-28
+ * @since 2020-01-27
  * https://leetcode-cn.com/problems/path-sum/
  * 112. 路径总和
  */
-public class Solution2 {
+public class Solution {
     private class TreeNode {
         int val;
         TreeNode left;
@@ -26,4 +26,5 @@ public class Solution2 {
         }
         return hasPathSum(root.left, sum - root.val) || hasPathSum(root.right, sum - root.val);
     }
+
 }

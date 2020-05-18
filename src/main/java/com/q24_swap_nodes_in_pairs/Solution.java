@@ -3,7 +3,7 @@ package com.q24_swap_nodes_in_pairs;
 /**
  * @author xjn
  * @since 2020-01-23
- * https://leetcode-cn.com/problems/swap-nodes-in-pairs/
+ * https://leetcode-cn.com/proble`	ms/swap-nodes-in-pairs/
  * 24. 两两交换链表中的节点
  */
 public class Solution {
@@ -14,10 +14,8 @@ public class Solution {
         }
         //1->2->3->4->null
         ListNode temp = head.next;
-        System.out.println(generateString(level) + "temp:" + temp.val);
         //1->2<-4<-3
         head.next = swapPairs(temp.next, level + 1);
-        System.out.println(generateString(level) + "head:" + head.val);
         temp.next = head;
         head = null;
         return temp;

@@ -5,10 +5,16 @@ package com.q79_word_search;
  * @since 2020-02-02
  * https://leetcode-cn.com/problems/word-search/
  * 79. 单词搜索
+ * 时间复杂度O(m * n * m * n)
+ * 空间复杂度O(m * n)
  */
 public class Solution {
 
-    private int d[][] = {{-1, 0}, {0, 1}, {1, 0}, {0, -1}};
+    private int d[][] = {
+            {-1, 0}, //0
+            {0, 1}, //1
+            {1, 0},//2
+            {0, -1}};//3
     private int m, n;
     private boolean[][] visited;
 
@@ -28,6 +34,7 @@ public class Solution {
     }
 
     private boolean searchWord(char[][] board, String word, int index, int startX, int startY) {
+        //返回最后一个字符是否相等
         if (index == word.length() - 1) {
             return board[startX][startY] == word.charAt(index);
         }
