@@ -8,6 +8,8 @@ import java.util.List;
  * @since 2020-02-06
  * https://leetcode-cn.com/problems/n-queens/
  * 51. N皇后
+ * 时间复杂度O(n^n)
+ * 空间复杂度O(n^2)
  */
 public class Solution {
     private List<List<String>> resList = new ArrayList<>();
@@ -34,12 +36,14 @@ public class Solution {
     private void putQueue(int n, int index, List<Integer> row) {
         if (index == n) {
             List<String> list = generateBoard(n, row);
+            //一个list是一个结果集
             resList.add(list);
             return;
         }
 
         //尝试将第index行的皇后摆放在第i列
         for (int i = 0; i < n; i++) {
+            //当前位置没有放过 && 当前位置的左对角线没放过 && 当前位置的右对角线没放过
             if (!col[i] && !dai1[index + i] && !dai2[index - i + n - 1]) {
                 col[i] = true;
                 dai1[index + i] = true;
@@ -54,8 +58,15 @@ public class Solution {
         }
     }
 
+
     private List<String> generateBoard(int n, List<Integer> row) {
+//      for(int i = 0; i < n; i ++){
+//          board[i][row[i] = 'Q';
+//       }
         List<String> list = new ArrayList<>();
+        //i行
+        //j列
+        //row[i]:列
         for (int i = 0; i < n; i++) {
             StringBuilder builder = new StringBuilder();
             for (int j = 0; j < n; j++) {
@@ -73,6 +84,6 @@ public class Solution {
 
     public static void main(String[] args) {
         Solution solution = new Solution();
-        System.out.println(solution.solveNQueens(4));
+        System.out.println(solution.solveNQueens(8));
     }
 }

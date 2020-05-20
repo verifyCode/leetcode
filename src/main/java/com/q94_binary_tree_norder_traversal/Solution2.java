@@ -11,6 +11,9 @@ import java.util.Stack;
  * 前序遍历  根左右
  * 中序遍历  左根右
  * 后序遍历: 左右根
+ *
+ * 时间复杂度O(n)
+ * 空间复杂度O(n)
  */
 public class Solution2 {
     public List<Integer> inorderTraversal(TreeNode root) {

@@ -8,6 +8,8 @@ import java.util.Map;
  * @since 2020-02-04
  * https://leetcode-cn.com/problems/decode-ways/
  * 91. 解码方法
+ * 时间复杂度O(n)
+ * 空间复杂度O(n)
  */
 public class Solution {
 
@@ -45,8 +47,6 @@ public class Solution {
 //        map.put(start, a + b);
         return a + b;
     }
-
-
     public static void main(String[] args) {
         Solution test = new Solution();
         System.out.println(test.numDecodings("12"));//2

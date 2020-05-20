@@ -6,6 +6,8 @@ import java.util.Arrays;
  * @author xjn
  * @since 2020-01-09
  * 三路partition
+ * 收件复杂度O(n)
+ * 空间复杂度O(1)
  */
 public class Solution2 {
     public void sortColors(int[] nums) {

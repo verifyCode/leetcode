@@ -8,6 +8,8 @@ import java.util.*;
  * <p>
  * https://leetcode-cn.com/problems/combinations/
  * 77. 组合
+ * 时间复杂度 O(n)
+ * 空间复杂度 O(n)
  */
 public class Solution {
 

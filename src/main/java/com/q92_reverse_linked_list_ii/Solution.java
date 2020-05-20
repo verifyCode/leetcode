@@ -16,6 +16,9 @@ package com.q92_reverse_linked_list_ii;
  * 来源：力扣（LeetCode）
  * 链接：https://leetcode-cn.com/problems/reverse-linked-list-ii
  * 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载 请注明出处。
+ * <p>
+ * 时间复杂度O(n)
+ * 空间复杂度O(n)
  */
 public class Solution {
     public ListNode reverseBetween(ListNode head, int m, int n) {
@@ -26,6 +29,7 @@ public class Solution {
         return head;
     }
     ListNode successor = null;
+
     private ListNode reverseN(ListNode head, int count) {
         if (count == 1) {
             successor = head.next;

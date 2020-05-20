@@ -5,6 +5,8 @@ package com.q91_decode_ways;
  * @since 2020-02-09
  * https://leetcode-cn.com/problems/decode-ways/
  * 91. 解码方法
+ * 时间复杂度O(n)
+ * 空间复杂度O(n)
  */
 public class Solution2 {
     public int numDecodings(String s) {

@@ -8,6 +8,8 @@ import java.util.List;
  * @since 2020-01-23
  * https://leetcode-cn.com/problems/binary-tree-inorder-traversal/submissions/
  * 二叉树中序遍历
+ * 时间复杂度O(n)
+ * 空间复杂度O(n)
  */
 public class Solution {
     public List<Integer> inorderTraversal(TreeNode root) {
