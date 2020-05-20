@@ -66,7 +66,7 @@ public class Solution {
         List<String> list = new ArrayList<>();
         //i行
         //j列
-        //row[i]:lie
+        //row[i]:列
         for (int i = 0; i < n; i++) {
             StringBuilder builder = new StringBuilder();
             for (int j = 0; j < n; j++) {

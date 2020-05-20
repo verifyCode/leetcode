@@ -5,6 +5,8 @@ package com.q63_unique_paths_ii;
  * @since 2020-02-
  * https://leetcode-cn.com/problems/unique-paths-ii/
  * 63. 不同路径 II
+ * 时间复杂度O(n2)
+ * 空间复杂度O()
  */
 public class Solution2 {
     public int uniquePathsWithObstacles(int[][] obstacleGrid) {
