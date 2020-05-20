@@ -10,8 +10,8 @@ import java.util.List;
  * @since 2020-02-10
  * https://leetcode-cn.com/problems/unique-binary-search-trees-ii/
  * 95. 不同的二叉搜索树 II
- * 时间复杂度
- * 空间复杂度
+ * 时间复杂度O(n^n)
+ * 空间复杂度O(n^n)
  */
 public class Solution {
     public List<TreeNode> generateTrees(int n) {

@@ -18,8 +18,6 @@ package com.q92_reverse_linked_list_ii;
  * 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载 请注明出处。
  */
 public class Solution {
-
-
     public ListNode reverseBetween(ListNode head, int m, int n) {
         if (m == 1) {
             return reverseN(head, n);
@@ -27,7 +25,6 @@ public class Solution {
         head.next = reverseBetween(head.next, m - 1, n - 1);
         return head;
     }
-
     ListNode successor = null;
     private ListNode reverseN(ListNode head, int count) {
         if (count == 1) {

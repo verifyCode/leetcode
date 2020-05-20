@@ -23,9 +23,9 @@ public class Solution {
 
     //返回字符串s的解码总数
     private int numDecodingsRecursive(String s, int start) {
-        if (map.containsKey(start)) {
-            return map.get(start);
-        }
+//        if (map.containsKey(start)) {
+//            return map.get(start);
+//        }
         if (start == s.length()) {
             return 1;
         }
@@ -42,7 +42,7 @@ public class Solution {
                 b = numDecodingsRecursive(s, start + 2);
             }
         }
-        map.put(start, a + b);
+//        map.put(start, a + b);
         return a + b;
     }
 
