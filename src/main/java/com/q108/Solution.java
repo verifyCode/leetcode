@@ -24,7 +24,7 @@ public class Solution {
             return null;
         }
 
-        int mid = l + (r - l) / 2;
+        int mid = l + (r - l + 1) / 2;
         TreeNode root = new TreeNode(nums[mid]);
         TreeNode left = sortedArrayToBST(nums, l, mid - 1);
         TreeNode right = sortedArrayToBST(nums, mid + 1, r);
