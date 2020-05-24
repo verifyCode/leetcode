@@ -27,6 +27,8 @@ public class Solution {
 		while (preorder[pStart] != inorder[iStart + step]) {
 			step++;
 		}
+		//前序:根左右
+		//中序:左根右
 		root.left = dfs(preorder, pStart + 1, pEnd, inorder, iStart, iStart + step - 1);
 		root.right = dfs(preorder, pStart + step + 1, pEnd, inorder, iStart + step + 1, pEnd);
 		return root;
