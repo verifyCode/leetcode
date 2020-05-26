@@ -7,6 +7,8 @@ import java.util.Arrays;
  * @since 2020-02-09
  * https://leetcode-cn.com/problems/coin-change/
  * 322. 零钱兑换
+ * 时间复杂度O(n^2)
+ * 空间复杂度O(n)
  */
 public class Solution3 {
     //dp[i] 在区间coin[0~n]中兑换i元钱最少需要多少硬币
@@ -14,13 +16,10 @@ public class Solution3 {
         int[] dp = new int[amount + 1];
         Arrays.fill(dp, amount + 1);
         dp[0] = 0;
-//        for (int i = 1; i < coins.length; i++) {
-//            for (int j = 0; j <= amount; j++) {
-//                if (j - coins[i] >= 0) {
-//                    dp[j] = Math.min(dp[j], dp[j - coins[i]] + 1);
-//                }
-//            }
-//        }
+        for (int coin : coins) {
+            dp[coin] = 1;
+        }
+
         for (int i = 1; i <= amount; i++) {
             for (int coin : coins) {
                 if (i - coin >= 0) {
