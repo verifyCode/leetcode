@@ -12,6 +12,13 @@ import java.util.Comparator;
  * 空间复杂度O(1)
  */
 public class Solution {
+    /**
+     *
+     * 先排序，每次更新能覆盖的最长片段，如果下一个的起始点超过了当前覆盖的范围，说明无解
+     * 在下次起始点不超过本次范围的情况下，寻找一个覆盖范围最广的片段
+     * 如果满足 >= T 那么返回结果
+     *
+     */
     public int videoStitching(int[][] clips, int T) {
         Comparator<int[]> comparator = (a, b) -> {
             if (a[0] == b[0]) {
