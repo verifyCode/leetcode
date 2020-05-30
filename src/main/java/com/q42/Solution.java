@@ -26,7 +26,9 @@ public class Solution {
                 if (stack.isEmpty()) {
                     break;
                 }
+                //距离差
                 int dis = i - stack.peek() - 1;
+                //面积
                 int h = Math.min(height[stack.peek()], height[i]) - height[cur];
                 ans += h * dis;
             }
