@@ -28,16 +28,19 @@ public class Solution {
         Arrays.sort(clips, comparator);
         int cur = 0, res = 0;
         for (int i = 0; i < clips.length; i++) {
+            //起始点超过本次范围,无解
             if (clips[i][0] > cur) {
                 return -1;
             }
-            int left = clips[i][1];
+            //从[i+1,clips.length)区间中找到右边值最大的
+            int right = clips[i][1];
             while (i + 1 < clips.length && clips[i + 1][0] <= cur) {
-                left = Math.max(left, clips[++i][1]);
+                right = Math.max(right, clips[++i][1]);
             }
-            cur = left;
+            //重置当前范围值
+            cur = right;
             res++;
-            if (left >= T) {
+            if (right >= T) {
                 return res;
             }
         }
