@@ -9,6 +9,8 @@ import java.util.Deque;
  * @since 2020-05-28
  * https://leetcode-cn.com/problems/trapping-rain-water/
  * 42. 接雨水
+ * 时间复杂度O(n)
+ * 空间复杂度O(n)
  */
 public class Solution {
     public int trap(int[] height) {
@@ -18,7 +20,7 @@ public class Solution {
         Deque<Integer> stack = new ArrayDeque<>();
         int ans = 0;
         for (int i = 0; i < height.length; i++) {
-            //当前值大于栈顶值
+            //当前值大于栈顶值,则pop,这样stack中的元素总是大于等于当前值
             while (!stack.isEmpty() && height[stack.peek()] < height[i]) {
                 //pop出来的值是比当前值小的元素
                 int cur = stack.pop();
@@ -32,6 +34,7 @@ public class Solution {
                 int h = Math.min(height[stack.peek()], height[i]) - height[cur];
                 ans += h * dis;
             }
+            //当前值小于等于栈顶值
             stack.push(i);
 
         }
