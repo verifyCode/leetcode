@@ -29,6 +29,7 @@ public class Solution {
             return 0;
         }
         int res = maxAmount;
+        //回溯
         for (int i = 0; i < coins.length; i++) {
             if (amount - coins[i] >= 0) {
                 int a = coinChangeR(coins, amount - coins[i]) + 1;

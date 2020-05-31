@@ -20,6 +20,7 @@ public class Solution2 {
         if (coins == null || coins.length == 0) {
             return -1;
         }
+        //保存已经算过的amount
         TreeSet<Integer> visited = new TreeSet<>();
         Pair<Integer, Integer> pair = new Pair<>(amount, 0);
         Queue<Pair<Integer, Integer>> queue = new LinkedList<>();
