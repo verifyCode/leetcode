@@ -9,6 +9,7 @@ public class Solution2 {
         if (head == null || head.next == null) {
             return head;
         }
+        //这里入参的head.next的head和递归完成之后的head有什么不同?
         ListNode ret = reverseList(head.next);
         head.next.next = head;
         head.next = null;
