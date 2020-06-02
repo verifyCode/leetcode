@@ -19,6 +19,12 @@ public class Solution2 {
             }
             pre = pre.next;
         }
+        if(l1 == null){
+            pre.next = l2;
+        }
+        if(l2 == null){
+            pre.next = l1;
+        }
         return dummyHead.next;
     }
 

@@ -43,7 +43,7 @@ public class Solution {
     }
 
     public static void main(String[] args) {
-        Solution solution = new Solution();
+		Solution solution = new Solution();
 //        int[] array = new int[]{2, 1, 2, 4, 3};
 //        solution.test1(array);
 //        solution.test2(array);
