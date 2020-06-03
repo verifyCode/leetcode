@@ -16,7 +16,9 @@ public class Solution {
         //1->2->3->4->null
         ListNode temp = head.next;
         //1->2<-4<-3
+        System.out.println(generateString(level));
         head.next = swapPairs(temp.next, level + 1);
+        System.out.println(generateString(level));
         temp.next = head;
         head = null;
         return temp;
@@ -34,7 +36,7 @@ public class Solution {
         Solution test = new Solution();
         int[] nums = {1, 2, 3, 4, 5, 6};
         ListNode head = new ListNode(nums);
-        System.out.println(head);
+//        System.out.println(head);
         System.out.println(test.swapPairs(head, 0));
     }
 }
