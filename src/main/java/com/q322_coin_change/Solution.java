@@ -1,7 +1,5 @@
 package com.q322_coin_change;
 
-import java.util.HashMap;
-
 /**
  * @author xjn
  * @since 2020-02-08
@@ -23,10 +21,11 @@ public class Solution {
         return a == maxAmount ? -1 : a;
     }
 
+    //amount从coins池子里换硬币的最小数量
     private int coinChangeR(int[] coins, int amount) {
-        if (memo[amount] != 0) {
-            return memo[amount];
-        }
+//        if (memo[amount] != 0) {
+//            return memo[amount];
+//        }
         if (amount == 0) {
             return 0;
         }
@@ -38,13 +37,15 @@ public class Solution {
                 res = Math.min(res, a);
             }
         }
-        memo[amount] = res;
+//        memo[amount] = res;
         return res;
     }
 
     public static void main(String[] args) {
 
         Solution solution = new Solution();
+        //5->2->1
+        //
         System.out.println(solution.coinChange(new int[]{1, 2, 5}, 11));
         System.out.println(solution.coinChange(new int[]{2}, 3));
         System.out.println(solution.coinChange(new int[]{1}, 0));

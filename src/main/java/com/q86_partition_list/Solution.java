@@ -1,8 +1,5 @@
 package com.q86_partition_list;
 
-import java.math.BigDecimal;
-import java.util.Optional;
-
 /**
  * @author xjn
  * @since 2020-01-23
