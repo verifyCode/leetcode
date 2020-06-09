@@ -17,10 +17,15 @@ public class Solution {
         ListNode tail = head;
         for (int i = 0; i < k; i++) {
             if (tail == null) {
+                //如果节点总数不是 k 的整数倍，那么请将最后剩余的节点保持原有顺序。
                 return head;
             }
             tail = tail.next;
         }
+        //h
+        //1-->2-->3-->4-->5-->6-->7-->null
+        //n   h
+        //2-->1-->3-->4-->5-->6-->7-->null
         ListNode newHead = reverse(head, tail);
         head.next = reverseKGroup(tail, k);
         return newHead;
