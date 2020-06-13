@@ -19,35 +19,30 @@ package com.q86_partition_list;
 //TODO
 public class Solution {
     public ListNode partition(ListNode head, int x) {
-//        ListNode leftHead = new ListNode(0);
-//        ListNode left = leftHead;
-//        ListNode midHead = new ListNode(0);
-//        ListNode mid = midHead;
-//        ListNode rightHead = new ListNode(0);
-//        ListNode right = rightHead;
-//        while (head != null) {
-//            if (head.val < x) {
-//                left.next = head;
-//                left = left.next;
-//            } else if (head.val == x) {
-//                mid.next = head;
-//                mid = mid.next;
-//            } else {
-//                right.next = head;
-//                right = right.next;
-//            }
-//            head = head.next;
-//        }
-//        System.out.println("leftHead:" + leftHead);
-//        System.out.println("left:" + left);
-//        System.out.println("midHead:" + midHead);
-//        System.out.println("mid:" + mid);
-//        System.out.println("rightHead:" + rightHead);
-//        System.out.println("right:" + right);
-//        left.next = midHead.next;
-//        mid.next = rightHead.next;
-//        return leftHead.next;
-        return null;
+        ListNode dummyHead1 = new ListNode(0);
+        ListNode dummyHead2 = new ListNode(0);
+
+        ListNode p1 = dummyHead1;
+        ListNode p2 = dummyHead2;
+
+        ListNode cur = head;
+        //1-->2-->3-->4
+        //
+        while (cur != null){
+            if(cur.val < x){
+                p1.next = cur;
+                p1 = p1.next;
+                p1.next = null;
+            }else {
+                p2.next = cur;
+                p2 = p2.next;
+                p2.next = null;
+            }
+            cur = cur.next;
+        }
+        p1.next = dummyHead2.next;
+        return dummyHead1.next;
+
     }
 
     public static void main(String[] args) {

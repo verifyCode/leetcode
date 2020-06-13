@@ -21,6 +21,7 @@ public class Solution2 {
         if (root == null) {
             return 0;
         }
+        "".split()
         int left = minDepth(root.left);
         int right = minDepth(root.right);
         if (left == 0 || right == 0) {
