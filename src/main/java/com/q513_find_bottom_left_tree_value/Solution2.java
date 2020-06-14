@@ -9,31 +9,29 @@ import com.q101_symmetric_tree.TreeNode;
  * 513. 找树左下角的值
  */
 public class Solution2 {
-    private int level = -1;
+	private int level = -1;
+	private int res   = -1;
 
-    public int findBottomLeftValue(TreeNode root) {
-        TreeNode dfs = dfs(root, 0);
-        if(dfs == null){
-            return 0;
-        }
-        return dfs.val;
-    }
+	public int findBottomLeftValue(TreeNode root) {
+		dfs(root, 0);
+		return res;
+	}
 
-    private TreeNode dfs(TreeNode root, int level) {
-        if (root == null) {
-            return null;
-        }
-        if (this.level < level) {
-            this.level = level;
-        } else {
-            return root;
-        }
-        dfs(root.right, level + 1);
-        dfs(root.left, level + 1);
-        return null;
-    }
+	private void dfs(TreeNode root, int level) {
+		if (root == null) {
+			return;
+		}
+		if (root.left == null && root.right == null) {
+			if (this.level < level) {
+				this.level = level;
+				this.res = root.val;
+			}
+		}
+		dfs(root.left, level + 1);
+		dfs(root.right, level + 1);
+	}
 
-    public static void main(String[] args) {
+	public static void main(String[] args) {
 
-    }
+	}
 }
