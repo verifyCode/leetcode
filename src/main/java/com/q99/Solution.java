@@ -24,6 +24,9 @@ public class Solution {
         b.val = c;
 
     }
+    //  2
+    //1   4
+    //      3
     private void inorder(TreeNode root){
         if(root == null){
             return;
