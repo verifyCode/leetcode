@@ -44,6 +44,7 @@ public class Solution {
         }
     }
 
+    //将X--->G
     private void dfs(char[][] board, int x, int y) {
         if (!inArea(x, y)) {
             return;

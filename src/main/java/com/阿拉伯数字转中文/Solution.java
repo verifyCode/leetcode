@@ -9,6 +9,7 @@ public class Solution {
     private static final char[] units = new char[]{'元', '拾', '佰', '仟', '万', '拾', '佰', '仟', '亿'};
 
     private static String cov(String str) {
+        int min = Integer.MAX_VALUE;
         StringBuffer sb = new StringBuffer(str);
         str = sb.reverse().toString()
                 .replaceAll("零[拾佰仟]", "零")
