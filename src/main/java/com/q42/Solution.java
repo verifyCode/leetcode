@@ -21,7 +21,7 @@ public class Solution {
         Deque<Integer> stack = new ArrayDeque<>();
         int ans = 0;
         for (int i = 0; i < height.length; i++) {
-            //当前值大于栈顶值,则pop,这样stack中的元素总是大于等于当前值
+            //如果当前值小于栈顶值,则直接push
             while (!stack.isEmpty() && height[stack.peek()] < height[i]) {
                 //pop出来的值是比当前值小的元素
                 int cur = stack.pop();
