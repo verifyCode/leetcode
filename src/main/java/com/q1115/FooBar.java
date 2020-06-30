@@ -6,6 +6,7 @@ import java.util.concurrent.locks.ReentrantLock;
 /**
  * @author xjn
  * @since 2020-03-05
+ * ReentrantLock
  */
 public class FooBar {
     private int n;

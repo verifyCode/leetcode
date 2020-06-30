@@ -3,6 +3,7 @@ package com.q1115;
 /**
  * @author xjn
  * @since 2020-03-05
+ * synchronized
  */
 public class FooBar2 {
     private int n;

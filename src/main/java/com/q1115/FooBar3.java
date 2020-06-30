@@ -5,6 +5,7 @@ import java.util.concurrent.CyclicBarrier;
 /**
  * @author xjn
  * @since 2020-03-05
+ * CyclicBarrier
  */
 public class FooBar3 {
     private int n;

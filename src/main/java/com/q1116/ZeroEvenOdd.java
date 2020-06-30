@@ -15,11 +15,10 @@ public class ZeroEvenOdd {
 
     private Lock lock = new ReentrantLock();
     private Condition zeroCondition = lock.newCondition();
-    private Condition evenCondition = lock.newCondition();
-    private Condition oddCondition = lock.newCondition();
-
-    private volatile int flag = 1;
-    private volatile int who = 0;
+    Condition z = lock.newCondition();
+    Condition num = lock.newCondition();
+    volatile boolean zTurn = true;
+    volatile int zIndex = 0;
 
     public ZeroEvenOdd(int n) {
         this.n = n;
@@ -27,22 +26,16 @@ public class ZeroEvenOdd {
 
     // printNumber.accept(x) outputs "x", where x is an integer.
     public void zero(IntConsumer printNumber) throws InterruptedException {
-        for (int i = 1; i <= n; i++) {
+        for (; zIndex < n; ) {
+            lock.lock();
             try {
-                lock.lock();
-                if (who != 0) {
-                    zeroCondition.await();
+                while (!zTurn) {
+                    z.await();
                 }
                 printNumber.accept(0);
-                who = 1;
-                if (flag % 2 == 0) {
-                    //偶数
-                    evenCondition.signal();
-                }
-                if (flag % 2 == 1) {
-                    //奇数
-                    oddCondition.signal();
-                }
+                zTurn = false;
+                num.signalAll();
+                zIndex++;
             } finally {
                 lock.unlock();
             }
@@ -52,16 +45,14 @@ public class ZeroEvenOdd {
     //2 4 6 8 10
     public void even(IntConsumer printNumber) throws InterruptedException {
         for (int i = 2; i <= n; i += 2) {
+            lock.lock();
             try {
-                lock.lock();
-                //奇数就在暂停
-                if (flag % 2 == 1 || who == 0) {
-                    evenCondition.await();
+                while (zTurn || (zIndex & 1) == 1) {
+                    num.await();
                 }
                 printNumber.accept(i);
-                flag++;
-                who = 0;
-                zeroCondition.signal();
+                zTurn = true;
+                z.signal();
             } finally {
                 lock.unlock();
             }
@@ -71,16 +62,14 @@ public class ZeroEvenOdd {
     //1 3 5 7 9
     public void odd(IntConsumer printNumber) throws InterruptedException {
         for (int i = 1; i <= n; i += 2) {
+            lock.lock();
             try {
-                lock.lock();
-                //偶数就暂停
-                if (flag % 2 == 0 || who == 0) {
-                    oddCondition.await();
+                while (zTurn || (zIndex & 1) == 0) {
+                    num.await();
                 }
                 printNumber.accept(i);
-                flag++;
-                who = 0;
-                zeroCondition.signal();
+                zTurn = true;
+                z.signal();
             } finally {
                 lock.unlock();
             }
