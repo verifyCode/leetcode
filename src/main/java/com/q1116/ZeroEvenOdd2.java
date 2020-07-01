@@ -35,7 +35,7 @@ public class ZeroEvenOdd2 {
             }
         }
     }
-
+    //2 4 6 8 10
     public void even(IntConsumer printNumber) throws InterruptedException {
         for (int i = 2; i <= n; i += 2) {
             e.acquire();
@@ -43,7 +43,7 @@ public class ZeroEvenOdd2 {
             z.release();
         }
     }
-
+    //1 3 5 7 9
     public void odd(IntConsumer printNumber) throws InterruptedException {
         for (int i = 1; i <= n; i += 2) {
             o.acquire();
